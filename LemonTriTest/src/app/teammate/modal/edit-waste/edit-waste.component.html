@@ -1,0 +1,44 @@
+<div class="convert-modal modal-content" role="dialog" tabindex="-1">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Pesée</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+  </div>
+  <div class="modal-body">
+    <h2>{{ step?.client?.name }} - {{ step?.name }}</h2>
+    <form>
+      <div>
+        <label>Matière</label>
+        <select class="form-select" [(ngModel)]="material"  [ngModelOptions]="{standalone: true}">
+          <ng-container *ngFor="let material of materials">
+            <option [ngValue]="material">{{ material }}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div>
+        <label>Type de contenants</label>
+        <select class="form-select" [(ngModel)]="container" [ngModelOptions]="{standalone: true}">
+          <ng-container *ngFor="let container of containers">
+            <option [ngValue]="container">{{ container }}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div>
+        <label>Qualité et poids</label>
+        <div>
+          <div>
+            <select class="form-select" [(ngModel)]="quality" [ngModelOptions]="{standalone: true}">
+              <ng-container *ngFor="let quality of qualities">
+                <option [ngValue]="quality">{{ quality }}</option>
+              </ng-container>
+            </select>
+          </div>
+          <input type="number">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+  </div>
+
+</div>

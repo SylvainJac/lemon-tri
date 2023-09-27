@@ -1,0 +1,40 @@
+<h2>Aujourd'hui tournée {{ tour.name }}</h2>
+<div>
+  <div>Teammate : {{ tour.teammate?.name }}</div>
+</div>
+
+<h3>Liste des pesés</h3>
+<div *ngFor="let step of tour?.steps; let index = index">
+  <div>{{ index + 1 }}. {{ step?.client?.name }} - {{ step?.name }}</div>
+
+  <div>
+    <table>
+      <thead>
+        <th>Nb</th>
+        <th>Contenants</th>
+        <th>Matières</th>
+        <th>Pesée</th>
+        <th>Pds</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let waste of step?.wastes">
+          <td>{{ waste?.quantity }}</td>
+          <td>{{ waste?.container }}</td>
+          <td>{{ waste?.material }}</td>
+          <td> {{ waste?.quality }} </td>
+          <td>{{ waste?.weighed }}kg</td>
+          <td>
+            <button (click)="openEditModal(step, waste)">Edit</button>
+            <button (click)="deleteWaste(step, waste)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <button (click)="openEditModal(step, undefined)">Weight another waste</button>
+    </div>
+  </div>
+</div>
