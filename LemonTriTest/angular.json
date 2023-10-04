@@ -111,5 +111,8 @@
       }
     }
   },
-  "defaultProject": "LemonTriTest"
+  "defaultProject": "LemonTriTest",
+  "cli": {
+    "analytics": "e3d6ac5c-0e00-406b-a008-f7033a2b4713"
+  }
 }
