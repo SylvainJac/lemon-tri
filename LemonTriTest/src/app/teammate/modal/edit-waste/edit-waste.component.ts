@@ -46,8 +46,7 @@ export class EditWasteComponent implements OnInit {
   }
 
   public save(): void {
-
-    this.saveEmit.emit({
+    const waste: Waste = {
       ...this.waste,
       // @ts-ignore
       id: this.waste?.id,
@@ -59,7 +58,9 @@ export class EditWasteComponent implements OnInit {
       quality: Quality[this.quality],
       weighed: this.waste?.weighed,
       quantity: this.quantity
-    });
+    }
+
+    this.saveEmit.emit(waste);
     this.activeModal.close();
   }
 }

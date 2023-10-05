@@ -42,7 +42,7 @@ export class TeammateComponent implements OnInit {
   }
 
   public deleteWaste(step: Step, waste: Waste): void {
-
+    this.tourService.deleteWaste(this.tour?.id, step, waste);
   }
 
 }

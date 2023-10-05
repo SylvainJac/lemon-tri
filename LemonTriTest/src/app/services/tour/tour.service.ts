@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Client, Container, Material, Quality, Teammate, Tour, Waste} from "../../core/model/tour.model";
+import {Client, Container, Material, Quality, Step, Teammate, Tour, Waste} from "../../core/model/tour.model";
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +28,20 @@ export class TourService {
 
   public addWaste(id: string, stepId: string, waste: Waste): void {
     const waste_ = {...waste, id: String(Math.random())}
-    const tour = this.tours.find(value => value.id = id);
-    tour?.steps.find(value => value.id === stepId)?.wastes?.push(waste);
+    const tour = this.tours.find(value => value.id === id);
+    tour?.steps.find(value => value.id === stepId)?.wastes?.push(waste_);
+  }
+
+  public deleteWaste(id: string, step: Step, waste: Waste): void {
+    const tour = this.tours.find(value => value?.id === id);
+    if (!!tour) {
+      tour.steps = tour.steps?.map(value => {
+        if (value?.id === step?.id) {
+          value.wastes = value.wastes.filter(waste_ => waste_.id !== waste.id);
+        }
+        return value
+      });
+    }
   }
 
   public getAllTours(): Tour[] {

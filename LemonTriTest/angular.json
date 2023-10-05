@@ -113,6 +113,10 @@
   },
   "defaultProject": "LemonTriTest",
   "cli": {
+<<<<<<< Updated upstream
     "analytics": "e3d6ac5c-0e00-406b-a008-f7033a2b4713"
+=======
+    "analytics": "2aabadaa-5127-477c-87ed-85696005c81e"
+>>>>>>> Stashed changes
   }
 }
